@@ -1,0 +1,69 @@
+
+CmdTimer = Timer.New()
+
+CmdTime = .5
+
+CmdTimer:Start(CmdTime)
+
+function SndCmd()
+  local StrLen = 1
+  StrLen = cCmd and string.len(cCmd) or 0
+  if StrLen > 2 then     
+  Send(cCmd) 
+  end
+end 
+
+
+
+CmdTimer.EventHandler = SndCmd
+
+
+
+--[[
+
+-- Example string of numbers
+local numString = "12345"
+
+-- Initialize an empty table (array)
+local array = {}
+
+-- Iterate over each character in the string
+for i = 1, #numString do
+    -- Convert the character to a number and insert into the table
+    array[i] = tonumber(numString:sub(i, i))
+end
+
+-- Print the resulting array
+for i = 1, #array do
+    print(array[i])
+end
+
+local csv_string = "apple,orange,banana,grape"
+local values = {}
+
+for value in csv_string:gmatch("[^,]+") do
+    table.insert(values, value)
+end
+
+-- Now 'values' table contains each value as separate elements
+for i, v in ipairs(values) do
+    print(i, v)
+end
+
+]]--
+
+-- Specify the path to your HTML file
+  local file_path = "help.htm"
+  
+  -- Open the file in read mode
+  local file = io.open(file_path, "r")
+  
+  if file then
+      -- Read the entire content of the file
+      local content = file:read("*a")
+      
+      -- Output or process the content as needed
+      print(content)
+
+ -- Close the file handle
+      file:close()      
